@@ -19,7 +19,12 @@ class RatingControl: UIView {
     */
     
     // MARK: Properties
-    var rating = 0
+    var rating = 0 {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+    
     var ratingButtons = [UIButton]()
     let spacing = 5
     let stars = 5
@@ -28,10 +33,18 @@ class RatingControl: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
+        let emptyStarImage = UIImage(named: "emptyStar")
+        let filledStarImage = UIImage(named: "filledStar")
+        
         for _ in 0..<stars {
             let button = UIButton()
-            //let button = UIButton(frame: CGRect(x:index*(44 + 5), y:0, width: 44, height: 44))
-            button.backgroundColor = UIColor.redColor()
+            
+            button.setImage(emptyStarImage, forState: .Normal)
+            button.setImage(filledStarImage, forState: .Selected)
+            button.setImage(filledStarImage, forState: [.Highlighted, .Selected])
+            
+            button.adjustsImageWhenHighlighted = false
+            
             button.addTarget(self,
                              action: #selector(RatingControl.ratingButtonTapped(_:)),
                              forControlEvents: .TouchDown)
@@ -49,6 +62,8 @@ class RatingControl: UIView {
             buttonFrame.origin.x = CGFloat(index * (buttonSize + spacing))
             button.frame = buttonFrame
         }
+        
+        updateButtonSelectionState()
     }
     
     override func intrinsicContentSize() -> CGSize {
@@ -59,8 +74,15 @@ class RatingControl: UIView {
     
     // MARK: Button Action
     func ratingButtonTapped(button: UIButton) {
-        print("Button Pressed 👍")
+        rating = ratingButtons.indexOf(button)! + 1
+        
+        updateButtonSelectionState()
     }
     
+    func updateButtonSelectionState() {
+        for (index, button) in ratingButtons.enumerate() {
+            button.selected = index < rating
+        }
+    }
     
 }
