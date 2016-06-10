@@ -74,8 +74,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Y8t-c2-L5U">
-                                <rect key="frame" x="20" y="40" width="560" height="418"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Y8t-c2-L5U">
+                                <rect key="frame" x="20" y="84" width="560" height="418"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Meal Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CcF-8K-oda">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
@@ -112,15 +112,21 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Meal" id="AdI-Ve-LR5">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tG4-ZS-sKr"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="05W-vY-zZr"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="05W-vY-zZr">
+                            <connections>
+                                <segue destination="vl2-XX-2Ir" kind="unwind" unwindAction="unwindToMealList:" id="rbL-8n-JlQ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="CcF-8K-oda" id="QEa-9H-Eej"/>
                         <outlet property="photoImageView" destination="RxE-ax-8tr" id="y0f-yL-pnN"/>
                         <outlet property="ratingControl" destination="rpM-Ll-AFN" id="lqG-YH-6LM"/>
+                        <outlet property="saveButton" destination="05W-vY-zZr" id="C8A-C4-Hec"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="vl2-XX-2Ir" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="VsJ-jR-dnH">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="Oda-Jr-edI"/>
