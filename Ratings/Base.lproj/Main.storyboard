@@ -23,20 +23,33 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGd-og-VIe">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGd-og-VIe">
                                             <rect key="frame" x="89" y="8" width="503" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DG7-VE-KYo" customClass="RatingControl" customModule="Ratings" customModuleProvider="target">
-                                            <rect key="frame" x="89" y="37" width="249" height="44"/>
+                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DG7-VE-KYo" customClass="RatingControl" customModule="Ratings" customModuleProvider="target">
+                                            <rect key="frame" x="89" y="37" width="503" height="44"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="ORr-iQ-0by">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="ORr-iQ-0by">
                                             <rect key="frame" x="8" y="8" width="73" height="73"/>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="DG7-VE-KYo" secondAttribute="trailing" id="1RS-4K-L5r"/>
+                                        <constraint firstItem="DG7-VE-KYo" firstAttribute="top" secondItem="HGd-og-VIe" secondAttribute="bottom" constant="8" symbolic="YES" id="56u-f3-QVr"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="ORr-iQ-0by" secondAttribute="leading" id="BVD-tJ-hbr"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ORr-iQ-0by" secondAttribute="bottom" id="Cug-Lp-JnI"/>
+                                        <constraint firstItem="DG7-VE-KYo" firstAttribute="leading" secondItem="ORr-iQ-0by" secondAttribute="trailing" constant="8" id="MmE-Vm-hex"/>
+                                        <constraint firstItem="DG7-VE-KYo" firstAttribute="leading" secondItem="M4L-0A-HZO" secondAttribute="leading" constant="89" id="RfQ-oX-aeN"/>
+                                        <constraint firstItem="DG7-VE-KYo" firstAttribute="top" secondItem="M4L-0A-HZO" secondAttribute="top" constant="37" id="X5j-ok-Pvi"/>
+                                        <constraint firstItem="DG7-VE-KYo" firstAttribute="leading" secondItem="HGd-og-VIe" secondAttribute="leading" id="hSZ-2v-8U2"/>
+                                        <constraint firstItem="DG7-VE-KYo" firstAttribute="trailing" secondItem="HGd-og-VIe" secondAttribute="trailing" id="ksp-nI-h4v"/>
+                                        <constraint firstItem="DG7-VE-KYo" firstAttribute="bottom" secondItem="ORr-iQ-0by" secondAttribute="bottom" id="uOd-di-2iC"/>
+                                        <constraint firstAttribute="topMargin" secondItem="ORr-iQ-0by" secondAttribute="top" id="zc5-1s-dj4"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="HGd-og-VIe" id="Mps-Xb-EiF"/>

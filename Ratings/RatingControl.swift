@@ -29,6 +29,15 @@ class RatingControl: UIView {
     let spacing = 5
     let stars = 5
 
+    var buttonSize: Int {
+        get{
+            //return Int(frame.size.height)
+            //return 40
+            let totalWidth = Int(frame.size.width)
+            return (totalWidth-spacing*(stars-1))/stars
+        }
+    }
+    
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -54,8 +63,9 @@ class RatingControl: UIView {
     }
     
     override func layoutSubviews() {
+        
         // Set the button's width and height to a square the size of the frame's height.
-        let buttonSize = Int(frame.size.height)
+        //let buttonSize = Int(frame.size.height)
         var buttonFrame = CGRect(x:0, y:0, width: buttonSize, height: buttonSize)
         // Offset each button's origin by the length of the button plus spacing.
         for (index, button) in ratingButtons.enumerate() {
@@ -64,10 +74,11 @@ class RatingControl: UIView {
         }
         
         updateButtonSelectionState()
+        //super.layoutSubviews()
     }
     
     override func intrinsicContentSize() -> CGSize {
-        let buttonSize = Int(frame.size.height)
+        //let buttonSize = Int(frame.size.height)
         let width = buttonSize*stars + spacing*(stars-1)
         return CGSize(width: width, height: buttonSize)
     }
