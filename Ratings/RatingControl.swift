@@ -8,18 +8,10 @@
 
 import UIKit
 
-class RatingControl: UIView {
-
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
+@IBDesignable class RatingControl: UIView {
     
     // MARK: Properties
-    var rating = 0 {
+    @IBInspectable var rating = 0 {
         didSet {
             setNeedsLayout()
         }
@@ -39,6 +31,10 @@ class RatingControl: UIView {
     }
     
     // MARK: Initialization
+    override init(frame: CGRect) {
+        super.init(frame: frame);
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
